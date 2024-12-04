@@ -8,7 +8,7 @@ module.exports = {
     "database": process.env.DB_NAME,
     "host": "127.0.0.1",
     // "host": "192.168.1.224",
-    "dialect": "mysql",
+    "dialect": "mariadb",
     "dialectOptions": {
     },
     "timezone": "+02:00"
@@ -18,14 +18,14 @@ module.exports = {
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mariadb"
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql",
+    "dialect": "mariadb",
     "dialectOptions": {
     },
     "timezone": "+02:00"

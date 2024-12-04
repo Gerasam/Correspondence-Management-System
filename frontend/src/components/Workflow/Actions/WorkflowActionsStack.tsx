@@ -73,6 +73,7 @@ const WorkflowActionsStack = () => {
     const [message, setMessage] = useState<string>("");
     const newActionRef: React.RefObject<any> = useRef<any>(null);
     const componentRef: React.RefObject<any> = useRef<any>(null); //to print the page
+    //const componentRef = useRef();
 
     useEffect((): ReturnType<EffectCallback> => {
         let mounted = true;

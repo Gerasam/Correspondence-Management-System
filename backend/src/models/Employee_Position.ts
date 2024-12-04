@@ -96,7 +96,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
             type: DataTypes.INTEGER(4).UNSIGNED, //must be the same exact type of `Position`(`id`)
             allowNull: false,
             references: {
-                model: 'Positions',
+                model: 'Position',
                 key: 'id'
             },
             // onDelete: 'SET NULL',
@@ -116,7 +116,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
             allowNull: false,
             type: DataTypes.STRING(100),
             references: {
-                model: 'Classifications',
+                model: 'Classification',
                 key: 'name'
             },
         },
@@ -125,7 +125,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
             type: DataTypes.INTEGER(11).UNSIGNED,
             allowNull: false,
             references: {
-                model: "JobTitles",
+                model: "JobTitle",
                 key: "id"
             },
         },
