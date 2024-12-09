@@ -77,43 +77,45 @@ app.use('/api/v1', indexRoute);
 
 
 // ==== SEEDERS ====
-// import { users } from './seeders/users'; //List of users' records
-// import { positionsList } from './seeders/Positions';
-// import { jobTitlesList } from './seeders/JobTitles';
-// import { classificationsList } from './seeders/Classifications';
-// import { positionsJobTitlesList } from './seeders/Positions_JobTitles';
+//import { users } from './seeders/users'; //List of users' records
+import { users } from './seeders/Employees';
+import { accounts } from './seeders/accounts';
+import { positionsList } from './seeders/Positions';
+import { jobTitlesList } from './seeders/JobTitles';
+import { classificationsList } from './seeders/Classifications';
+import { positionsJobTitlesList } from './seeders/Positions_JobTitles';
 import { consigneesGroups } from './seeders/Consignees_Group';
 import { consigneesGroupsMembers } from './seeders/Consignees_Group_Member';
 
 
-// const createPositions = () => {
-//     positionsList.map(pos => {
-//         models.Position.create(pos)
-//             .then((result: any) => console.log(result))
-//             .catch((error: any) => console.log(error))
-//     })
-// }
-// const createJobTitles = () => {
-//     jobTitlesList.map((jobtitle: any) => {
-//         models.JobTitle.create(jobtitle)
-//             .then((result: any) => console.log(result))
-//             .catch((error: any) => console.log(error))
-//     })
-// }
-// const createClassifications = () => {
-//     classificationsList.map((classf: any) => {
-//         db.Classification.create(classf)
-//             .then((result: any) => console.log(result))
-//             .catch((error: any) => console.log(error))
-//     })
-// }
-// const populateJunctionTable = () => {
-//     positionsJobTitlesList.map((item: any) => {
-//         db.Position_JobTitle.create(item)
-//             .then((result: any) => console.log(result))
-//             .catch((error: any) => console.log(error))
-//     })
-// }
+const createPositions = () => {
+    positionsList.map(pos => {
+        models.Position.create(pos)
+            .then((result: any) => console.log(result))
+            .catch((error: any) => console.log(error))
+    })
+}
+const createJobTitles = () => {
+    jobTitlesList.map((jobtitle: any) => {
+        models.JobTitle.create(jobtitle)
+            .then((result: any) => console.log(result))
+            .catch((error: any) => console.log(error))
+    })
+}
+const createClassifications = () => {
+    classificationsList.map((classf: any) => {
+        models.Classification.create(classf)
+            .then((result: any) => console.log(result))
+            .catch((error: any) => console.log(error))
+    })
+}
+const populateJunctionTable = () => {
+    positionsJobTitlesList.map((item: any) => {
+        models.Position_JobTitle.create(item)
+            .then((result: any) => console.log(result))
+            .catch((error: any) => console.log(error))
+    })
+}
 
 const createConsigneesGroups = () => {
     consigneesGroups.map(group => {
@@ -125,6 +127,23 @@ const createConsigneesGroups = () => {
 const createConsigneesGroupsMembers = () => {
     consigneesGroupsMembers.map(groupMember => {
         models.Consignees_Group_Member.create(groupMember)
+            .then((result: any) => console.log(result))
+            .catch((error: any) => console.log(error))
+    })
+}
+
+const createAccounts = () => {
+    accounts.map((account: any) => {
+        models.Account.create(account)
+            .then((result: any) => console.log(result))
+            .catch((error: any) => console.log(error))
+    })
+}
+
+const createEmployees = () => {
+    console.log(models);
+    users.map((users: any) => {
+        models.Employee.create(users)
             .then((result: any) => console.log(result))
             .catch((error: any) => console.log(error))
     })
@@ -212,12 +231,14 @@ db.sequelize
             // ------------ End io.on() -----------------------------
         });
 
-        // createPositions();
-        // createJobTitles();
-        // createClassifications();
-        // populateJunctionTable();
-        // createConsigneesGroups();
-        // createConsigneesGroupsMembers();
+        createEmployees();
+        createAccounts();
+        createPositions();
+        createClassifications();
+        createJobTitles();
+        populateJunctionTable();
+        createConsigneesGroups();
+        createConsigneesGroupsMembers();
     })
     .catch((err: any) => {
         console.log(err);

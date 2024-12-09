@@ -2,9 +2,10 @@
 export const accounts = [
     {
         username: "flawless.faris@gmail.com",
-        password: "$2b$10$c6qA6rkMgqCmOOtcup5d8ubJ5fVeV2BGwlNfz4ixxAMvBMgfJ5OGe",
+        password: "$2a$12$5LKwTwjB9XDibP6vqqumJ.nAm/bwZePc3EIfiL9T24BlCixKQcSNO",
         // password decrypted is: Pa$$word201810408
-        userId: 1
+        id: 1,
+        employeeId: 1000
     },
     // {
     //     username: "flawless.faris@gmail.com",

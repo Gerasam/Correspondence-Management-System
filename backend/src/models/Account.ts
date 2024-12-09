@@ -1,9 +1,16 @@
 'use strict';
 import { Model, DataTypes } from 'sequelize';
 
+import {
+    EmployeeAttributes,
+    EmployeeStatus,
+    MaritalStatus,
+    Role
+  } from '../interfaces/Employee';
+
 export interface IAccount {
     id: number;
-    // employeeId: EmployeeAttributes["id"]; //references the id field in `Employee`(`id`) model
+    employeeId: EmployeeAttributes["id"]; //references the id field in `Employee`(`id`) model
 
     username: string;
     password: string;
@@ -21,7 +28,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
          * The `models/index` file will call this method automatically.
          */
         id!: IAccount["id"];
-        // employeeId!: IAccount["employeeId"]; 
+        employeeId!: IAccount["employeeId"]; 
         username!: IAccount["username"];
         password!: IAccount["password"];
         // lastLoginPosId: AccountAttributes["lastLoginPosId"];
@@ -67,16 +74,26 @@ module.exports = (sequelize: any, DataTypes: any) => {
             type: DataTypes.STRING, //default length is VARCHAR(255)
             allowNull: false
         },
+        employeeId: {
+            type: DataTypes.INTEGER(11).UNSIGNED,
+            allowNull: true,
+            references: {
+                model: "Employees",
+                key: "id"
+            },
+            unique: "accounts_ibfk_1",
+        },
         isActivated: {
             type: DataTypes.BOOLEAN, // TINYINT(1)
             defaultValue: false,
             // In order to activate the account, the employee must click the activation 
             // link which will be sent to his email address.
         }
-    }, {
-        sequelize,
-        modelName: 'Account',
-        // initialAutoIncrement: "1000", //must be string | undefined
-    });
+    }, 
+        {
+            sequelize,
+            modelName: 'Account',
+            // initialAutoIncrement: "1000", //must be string | undefined
+        });
     return Account;
 };
