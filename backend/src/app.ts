@@ -149,6 +149,15 @@ const createEmployees = () => {
     })
 }
 
+const createEmployees_Positions = () => {
+    console.log(models);
+    users.map((users: any) => {
+        models.employees_positions.create(users)
+            .then((result: any) => console.log(result))
+            .catch((error: any) => console.log(error))
+    })
+}
+
 /*
 .sync({ force: true })
 { force: true }: This option force Sequelize to create a table, dropping it first if it already existed
@@ -239,6 +248,7 @@ db.sequelize
         populateJunctionTable();
         createConsigneesGroups();
         createConsigneesGroupsMembers();
+        createEmployees_Positions();
     })
     .catch((err: any) => {
         console.log(err);
