@@ -86,6 +86,7 @@ import { classificationsList } from './seeders/Classifications';
 import { positionsJobTitlesList } from './seeders/Positions_JobTitles';
 import { consigneesGroups } from './seeders/Consignees_Group';
 import { consigneesGroupsMembers } from './seeders/Consignees_Group_Member';
+import { employees_positions } from './seeders/Employees_positions';
 
 
 const createPositions = () => {
@@ -151,8 +152,8 @@ const createEmployees = () => {
 
 const createEmployees_Positions = () => {
     console.log(models);
-    users.map((users: any) => {
-        models.employees_positions.create(users)
+    employees_positions.map((ep: any) => {
+        models.Employee_Position.create(ep)
             .then((result: any) => console.log(result))
             .catch((error: any) => console.log(error))
     })
@@ -245,10 +246,10 @@ db.sequelize
         createPositions();
         createClassifications();
         createJobTitles();
+        createEmployees_Positions();
         populateJunctionTable();
         createConsigneesGroups();
         createConsigneesGroupsMembers();
-        createEmployees_Positions();
     })
     .catch((err: any) => {
         console.log(err);
