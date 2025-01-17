@@ -84,9 +84,9 @@ const EmployeeBasicInfo: FC<Props> = ({
                     });
                 }}
                 onBlur={() => dispatch({ type: EmpActionTypes.MIDDLE_NAME_BLURED })}
-                error={state.valid.middleName !== ""}
+                /*error={state.valid.middleName !== ""}*/
                 helperText={state.valid.middleName}
-                required
+                //required
                 className="middle-name"
                 id="middle-name"
                 label="Middle Name"

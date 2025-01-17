@@ -78,7 +78,7 @@ const AddEmployee: FC<any> = (props: any) => {
 
     const verdict = validateAllBeforeSubmit(state); //returns true if all is well
     setFormIsValid(verdict);
-    // console.log(state);
+    console.log(verdict);
     if (formIsValid) {
       // console.log(state);
 

@@ -120,8 +120,7 @@ const InformationPage = ({
             .max(15, "must be 15 characters or less")
             .required("Required"),
         middleName: Yup.string()
-            .max(15, "must be 15 characters or less")
-            .required("Required"),
+            .max(15, "must be 15 characters or less").optional("optional"),
         username: Yup.string().required("Required"),
         hireDate: Yup.string().required("Required"),
         email: Yup.string().email("Email is invalid").required("Required"),

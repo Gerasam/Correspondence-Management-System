@@ -122,7 +122,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
     },
     middleName: {
       type: DataTypes.STRING(30),
-      allowNull: false,
+      allowNull: true,
     },
     lastName: {
       type: DataTypes.STRING(30),

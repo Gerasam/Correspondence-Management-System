@@ -24,7 +24,7 @@ export const validateMiddleName = (name: string): string => {
     let message = "";
     const letters = /^[a-z\s\-]+$/i; //allow letters and space and dash (-) example: Noor-Eddeen
 
-    if (name === "") {
+    /*if (name === "") {
         message = "Empty field"
     }
     else if (!name.match(letters)) {
@@ -33,8 +33,8 @@ export const validateMiddleName = (name: string): string => {
     else if (name.trim().length < 1) {
         message = "Name must be 1 letter(s) minimum";
     }
-    else if (name.trim().length > 15) {
-        message = "Name must be 15 letters minimum";
+    else*/ if (name.trim().length > 15) {
+        message = "Name must be 15 letters maximum";
     }
     return message;
 };
@@ -89,7 +89,7 @@ export const checkUsernameTaken = (e: any, state: any, dispatch: any) => {
 }
 // --------------------------------------------------------------
 export const validateAllBeforeSubmit = (state: any): boolean => {
-    // console.log("I will validate this:", state);
+    console.log("I will validate this:", state);
     const v = state.valid;
     let isValid = true;
 
@@ -98,7 +98,7 @@ export const validateAllBeforeSubmit = (state: any): boolean => {
 
 
     // Check the helperText Message:
-    if (v.firstName !== "" || v.middleName !== "" || v.lastName !== "" || v.email !== "" || v.phoneNumber) {
+    if (v.firstName !== "" /*|| v.middleName !== ""*/ || v.lastName !== "" || v.email !== "" || v.phoneNumber) {
         isValid = false;
     }
     // Check the value itself:
